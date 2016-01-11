@@ -4,7 +4,7 @@
 
 "use strict";
 
-var JSHINT  = require('../../src/jshint.js').JSHINT;
+var JSHINT  = require("../..").JSHINT;
 var fs      = require('fs');
 var TestRun = require("../helpers/testhelper").setup.testRun;
 
@@ -30,7 +30,7 @@ function globalsImplied(test, globals, options) {
   JSHINT(wrap(globals), options || {});
   var report = JSHINT.data();
 
-  test.ok(report.implieds !== null);
+  test.ok(report.implieds != null);
   test.ok(report.globals === undefined);
 
   var implieds = [];
@@ -85,6 +85,13 @@ exports.node = function (test) {
   TestRun(test)
     .addError(1, "Read only.")
     .test(overwrites, { es3: true, browserify: true });
+
+  TestRun(test, "gh-2657")
+    .test("'use strict';var a;", { node: true });
+
+  // Implied `strict: global` if `strict` is `true`
+  JSHINT("", { node: true, strict: true });
+  test.strictEqual(JSHINT.data().options.strict, "global");
 
   test.done();
 };

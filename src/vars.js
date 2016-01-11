@@ -83,6 +83,9 @@ exports.browser = {
   ElementTimeControl   : false,
   Event                : false,
   event                : false,
+  fetch                : false,
+  File                 : false,
+  FileList             : false,
   FileReader           : false,
   FormData             : false,
   focus                : false,
@@ -96,6 +99,7 @@ exports.browser = {
   HTMLBRElement        : false,
   HTMLButtonElement    : false,
   HTMLCanvasElement    : false,
+  HTMLCollection       : false,
   HTMLDirectoryElement : false,
   HTMLDivElement       : false,
   HTMLDListElement     : false,
@@ -175,6 +179,7 @@ exports.browser = {
   opener               : false,
   Option               : false,
   parent               : false,
+  performance          : false,
   print                : false,
   Range                : false,
   requestAnimationFrame : false,
@@ -364,6 +369,7 @@ exports.browser = {
   WebGLUniformLocation : false,
   WebSocket            : false,
   window               : false,
+  Window               : false,
   Worker               : false,
   XDomainRequest       : false,
   XMLHttpRequest       : false,
@@ -464,6 +470,7 @@ exports.qunit = {
   module         : false,
   notDeepEqual   : false,
   notEqual       : false,
+  notOk          : false,
   notPropEqual   : false,
   notStrictEqual : false,
   ok             : false,
@@ -669,6 +676,8 @@ exports.yui = {
 };
 
 exports.mocha = {
+  // Global (for config etc.)
+  mocha       : false,
   // BDD
   describe    : false,
   xdescribe   : false,
@@ -710,5 +719,6 @@ exports.jasmine = {
   afterAll    : false,
   fail        : false,
   fdescribe   : false,
-  fit         : false
+  fit         : false,
+  pending     : false
 };
